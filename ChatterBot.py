@@ -2,7 +2,7 @@
 import tweepy
 import time
 import json
-from config import consumer_key, consumer_secret, access_token, access_token_secret
+#from config import consumer_key, consumer_secret, access_token, access_token_secret
 
 # Twitter API Keys
 consumer_key = consumer_key
@@ -17,21 +17,19 @@ api = tweepy.API(auth, parser=tweepy.parsers.JSONParser())
 
 # Create a function that tweets
 def TweetOut(tweet_number):
-    api.update_status(
-        "Can't stop. Won't stop. Chatting! This is Tweet #%s!" %
-        tweet_number)
+    api.update_status(f'Testing twitter bot! This is Tweet {tweet_number}!')
 
 # Create a function that calls the TweetOut function every minute
 counter = 0
 
 # Infinite loop
-while(True):
+while(counter<5):
 
     # Call the TweetQuotes function and specify the tweet number
     TweetOut(counter)
 
     # Once tweeted, wait 60 seconds before doing anything else
-    time.sleep(60)
+    time.sleep(30)
 
     # Add 1 to the counter prior to re-running the loop
-    counter = counter + 1
+    counter += 1
